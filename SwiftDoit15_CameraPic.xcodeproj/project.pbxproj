@@ -14,6 +14,7 @@
 		98478EBC295EB69900F2DAF3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 98478EBB295EB69900F2DAF3 /* Assets.xcassets */; };
 		98478EBF295EB69900F2DAF3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 98478EBD295EB69900F2DAF3 /* LaunchScreen.storyboard */; };
 		98478EC7295EB84F00F2DAF3 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 98478EC6295EB84F00F2DAF3 /* README.md */; };
+		98478EC9295EC70200F2DAF3 /* camera_plist.png in Resources */ = {isa = PBXBuildFile; fileRef = 98478EC8295EC70200F2DAF3 /* camera_plist.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		98478EBE295EB69900F2DAF3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		98478EC0295EB69900F2DAF3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		98478EC6295EB84F00F2DAF3 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		98478EC8295EC70200F2DAF3 /* camera_plist.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = camera_plist.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 				98478EBD295EB69900F2DAF3 /* LaunchScreen.storyboard */,
 				98478EC0295EB69900F2DAF3 /* Info.plist */,
 				98478EC6295EB84F00F2DAF3 /* README.md */,
+				98478EC8295EC70200F2DAF3 /* camera_plist.png */,
 			);
 			path = SwiftDoit15_CameraPic;
 			sourceTree = "<group>";
@@ -129,6 +132,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				98478EBF295EB69900F2DAF3 /* LaunchScreen.storyboard in Resources */,
+				98478EC9295EC70200F2DAF3 /* camera_plist.png in Resources */,
 				98478EBC295EB69900F2DAF3 /* Assets.xcassets in Resources */,
 				98478EC7295EB84F00F2DAF3 /* README.md in Resources */,
 				98478EBA295EB69800F2DAF3 /* Main.storyboard in Resources */,
@@ -220,7 +224,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -274,7 +278,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

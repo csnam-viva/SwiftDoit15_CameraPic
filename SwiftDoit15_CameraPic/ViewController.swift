@@ -7,7 +7,7 @@
 
 import UIKit
 import MobileCoreServices
-
+import UniformTypeIdentifiers
 class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate{
 
     @IBOutlet weak var imageView: UIImageView!
@@ -29,12 +29,42 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigat
         
     }
     @IBAction func btnLoadPicture(_ sender: UIButton) {
+        if (UIImagePickerController.isSourceTypeAvailable(.photoLibrary)){
+            flagImageSave = false
+            imagePicker.delegate = self
+            imagePicker.sourceType = .photoLibrary
+            imagePicker.mediaTypes = [kUTTypeImage as String]
+            imagePicker.allowsEditing = true
+            present(imagePicker,animated: true, completion: nil)
+        }
+        else{
+            myAlert("photo inaccessable", message: "application can't access the photo")
+        }
+        
+    }
+    
+    @IBAction func btnLoadVideo(_ sender: UIButton) {
+        
+        if (UIImagePickerController.isSourceTypeAvailable(.photoLibrary)){
+            flagImageSave = false
+            imagePicker.delegate = self
+            imagePicker.sourceType = .photoLibrary
+            imagePicker.mediaTypes = [kUTTypeMovie as String]
+            imagePicker.allowsEditing = true
+            present(imagePicker,animated: true, completion: nil)
+        }
+        else{
+            myAlert("photo inaccessable", message: "application can't access the photo")
+        }
+
+    }
+    @IBAction func btnCaptureImage(_ sender: UIButton) {
         if (UIImagePickerController.isSourceTypeAvailable(.camera)){
             flagImageSave = true
             imagePicker.delegate = self
             imagePicker.sourceType = .camera
             //imagePicker.mediaTypes = [kUTTypeImage as String]
-            //imagePicker.mediaTypes = [UTType.jpeg.identifier as
+            imagePicker.mediaTypes = [UTType.image.identifier]
             imagePicker.allowsEditing = false
             present(imagePicker,animated: true,completion: nil)
         }
@@ -42,16 +72,46 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigat
             myAlert("camera inaccessable", message: "application can't access the camera")
         }
     }
-    
-    @IBAction func btnLoadVideo(_ sender: UIButton) {
-
-    }
-    @IBAction func btnCaptureImage(_ sender: UIButton) {
-
-    }
     @IBAction func btnRecordVideo(_ sender: UIButton) {
-
+        //let  utilType = [UTType.image,.movie,.video]
+        if (UIImagePickerController.isSourceTypeAvailable(.camera)){
+            flagImageSave = true
+            imagePicker.delegate = self
+            imagePicker.sourceType = .camera
+            //imagePicker.mediaTypes = [kUTTypeMovie as String]
+            imagePicker.mediaTypes = [UTType.movie.identifier]
+            imagePicker.allowsEditing = false
+            present(imagePicker,animated: true,completion: nil)
+        }
+        else{
+            myAlert("camera inaccessable", message: "application can't access the camera")
+        }
     }
-
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        //let mediaType = info[UIImagePickerControllerMediaType] as!  NSString
+        
+        let mediaType = info[UIImagePickerController.InfoKey.mediaType] as! NSString
+        
+        if mediaType.isEqual(to: UTType.image.identifier as NSString as String){
+            captureImage = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
+            
+            if flagImageSave{
+                UIImageWriteToSavedPhotosAlbum(captureImage, self, nil, nil)
+            }
+            imageView.image = captureImage
+        }
+        else if mediaType.isEqual(to: kUTTypeMovie as NSString as String ){
+            if flagImageSave{
+                videoURL = (info[UIImagePickerController.InfoKey.mediaURL] as! URL)
+                UISaveVideoAtPathToSavedPhotosAlbum(videoURL.relativePath,self,nil,nil)
+                NSLog("moive save")
+            }
+        }
+        self.dismiss(animated: true,completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        self.dismiss(animated: true,completion: nil)
+    }
 }
 
