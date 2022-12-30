@@ -44,6 +44,8 @@
 		98478EA6295EB69800F2DAF3 = {
 			isa = PBXGroup;
 			children = (
+				98478EC6295EB84F00F2DAF3 /* README.md */,
+				98478ECA295EC83800F2DAF3 /* image */,
 				98478EB1295EB69800F2DAF3 /* SwiftDoit15_CameraPic */,
 				98478EB0295EB69800F2DAF3 /* Products */,
 			);
@@ -67,10 +69,16 @@
 				98478EBB295EB69900F2DAF3 /* Assets.xcassets */,
 				98478EBD295EB69900F2DAF3 /* LaunchScreen.storyboard */,
 				98478EC0295EB69900F2DAF3 /* Info.plist */,
-				98478EC6295EB84F00F2DAF3 /* README.md */,
-				98478EC8295EC70200F2DAF3 /* camera_plist.png */,
 			);
 			path = SwiftDoit15_CameraPic;
+			sourceTree = "<group>";
+		};
+		98478ECA295EC83800F2DAF3 /* image */ = {
+			isa = PBXGroup;
+			children = (
+				98478EC8295EC70200F2DAF3 /* camera_plist.png */,
+			);
+			path = image;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
